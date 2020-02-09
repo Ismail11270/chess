@@ -1,10 +1,15 @@
 #include "Figure.h"
+#include "Game.h"
 
-Figure::Figure(sf::Texture texture) {
-	sprite = new sf::Sprite(texture);
-	sprite->setPosition(400, 400);
+
+
+Figure::Figure(BoardPiece* piece, sf::Color color) {
+	this->piece = piece;
+	this->color = color;
 }
 
-void Figure::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-	target.draw(*sprite);
+sf::Color Figure::getColor() {
+	return color;
 }
+
+

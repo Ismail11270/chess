@@ -130,16 +130,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="BoardPiece.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pawn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="BoardPiece.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Figure.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Pawn.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Project17\Debug\textures\heal.png" />

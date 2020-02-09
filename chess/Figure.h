@@ -1,12 +1,21 @@
 #pragma once
-#include "Entity.h"
+#include "BoardPiece.h"
+
 class Figure :
 	public Entity
 {
 private:
-	sf::Sprite *sprite;
+	BoardPiece *piece;
+	sf::Color color;
 public:
-	Figure(sf::Texture);
-	void draw(sf::RenderTarget&, sf::RenderStates) const override;
+	Figure( BoardPiece*, sf::Color);
+	virtual void moveTo(BoardPiece) = 0;
+	virtual sf::Vector2f getPosition() = 0;
+	virtual void setPosition(BoardPiece) = 0;
+	sf::Color getColor();
+	virtual sf::Sprite* getSprite() = 0;
+	BoardPiece* getPiece() {
+		return piece;
+	}
 };
 
