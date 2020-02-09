@@ -1,0 +1,7 @@
+﻿  Game.cpp
+c:\users\ismail\desktop\projects\visualstudio\chess\chess\game.cpp(4): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  chess.vcxproj -> C:\Users\Ismail\Desktop\Projects\VisualStudio\chess\Debug\chess.exe
