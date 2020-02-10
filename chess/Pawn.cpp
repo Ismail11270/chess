@@ -64,6 +64,7 @@ bool Pawn::canMove(BoardPiece* bp, Entity* board) {
 }
 
 bool Pawn::canBeat(Figure* fig, Entity* board) {
+	if (getColor() == fig->getColor()) return false;
 	sf::Vector2i current = getPiece()->getId();
 	sf::Vector2i destination = fig->getPiece()->getId();
 	bool isWhite = getColor() == sf::Color::White;
@@ -74,7 +75,7 @@ bool Pawn::canBeat(Figure* fig, Entity* board) {
 	}
 	else if (!isWhite && (current.y - 1) == destination.y &&
 		((current.x + 1) == destination.x || (current.x - 1) == destination.x)) {
-		return true;
+		return true;	
 	}
 	return false;
 }

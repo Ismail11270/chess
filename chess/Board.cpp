@@ -85,6 +85,8 @@ void Board::reset() {
 	blackFigures.push_back(new Rook(boardPieces[7][7], sf::Color::Black));
 
 
+
+
 }
 
 void Board::clearSelelctedFig() {

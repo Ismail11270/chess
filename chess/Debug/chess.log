@@ -3,6 +3,9 @@ c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(31): warning
 c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(34): warning C4018: '<': signed/unsigned mismatch
 c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(45): warning C4018: '<': signed/unsigned mismatch
 c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(51): warning C4018: '<': signed/unsigned mismatch
-c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(99): warning C4018: '<': signed/unsigned mismatch
-c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(106): warning C4018: '<': signed/unsigned mismatch
+c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(101): warning C4018: '<': signed/unsigned mismatch
+c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(108): warning C4018: '<': signed/unsigned mismatch
+  Pawn.cpp
+  Rook.cpp
+  Generating Code...
   chess.vcxproj -> C:\Users\Ismail\Desktop\Projects\VisualStudio\chess\Debug\chess.exe

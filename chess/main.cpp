@@ -6,6 +6,6 @@
 #define WINDOW_SIZE_Y 400
 
 int main() {
-	Game game({ WINDOW_SIZE_X,WINDOW_SIZE_Y }, "chess");
+	Game game({ WINDOW_SIZE_X,WINDOW_SIZE_Y }, "Chess");
 	game.start();
 }

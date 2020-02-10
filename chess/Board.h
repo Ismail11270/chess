@@ -9,6 +9,7 @@ class Board :
 {
 private:
 	BoardPiece* boardPieces[8][8];
+	//template stl class
 	std::vector<Figure*> whiteFigures;
 	std::vector<Figure*> blackFigures;
 	Figure* selectedFig = NULL;

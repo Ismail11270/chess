@@ -8,7 +8,6 @@ private:
 	sf::Vector2i id;
 	sf::RectangleShape square;
 	sf::Color color;
-	
 	bool empty = true;
 public:
 	static const int SQUARE_SIZE = 50;
