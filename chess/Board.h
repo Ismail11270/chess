@@ -15,6 +15,7 @@ private:
 	bool selected = false;
 public:
 	Board(sf::Vector2f);
+	BoardPiece** getPieces() { return *boardPieces; }
 	void draw(sf::RenderTarget&, sf::RenderStates) const override;
 	BoardPiece* getBoardPiece(int, int);
 	void reset();
@@ -33,5 +34,6 @@ public:
 	Figure* getSelectedFig() { return selectedFig; }
 	void clearSelelctedFig();
 	void removeFigure(Figure*);
+
 };
 

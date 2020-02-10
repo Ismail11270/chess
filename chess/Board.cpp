@@ -1,5 +1,6 @@
 #include "Board.h"
 #include "Pawn.h"
+#include "Rook.h"
 
 Board::Board(sf::Vector2f intial_pos) {
 	bool white = true;
@@ -76,6 +77,14 @@ void Board::reset() {
 		blackFigures.push_back(new Pawn(boardPieces[i][6], sf::Color::Black));
 		boardPieces[i][6]->setEmpty(false);
 	}
+	//adding rooks
+	whiteFigures.push_back(new Rook(boardPieces[0][0], sf::Color::White));
+	whiteFigures.push_back(new Rook(boardPieces[7][0], sf::Color::White));
+
+	blackFigures.push_back(new Rook(boardPieces[0][7], sf::Color::Black));
+	blackFigures.push_back(new Rook(boardPieces[7][7], sf::Color::Black));
+
+
 }
 
 void Board::clearSelelctedFig() {

@@ -1,5 +1,6 @@
 #include "Pawn.h"
 #include <iostream>
+#include <cmath>
 
 void Pawn::moveTo(BoardPiece *piece) {
 	getPiece()->resetColor();
@@ -40,7 +41,7 @@ const char* Pawn::getName() {
 	return "PAWN";
 }
 
-bool Pawn::canMove(BoardPiece* bp) {
+bool Pawn::canMove(BoardPiece* bp, Entity* board) {
 	bool white = false;
 	sf::Vector2i current = getPiece()->getId();
 	sf::Vector2i destination = bp->getId();
@@ -48,15 +49,21 @@ bool Pawn::canMove(BoardPiece* bp) {
 		white = true;
 	}
 	int dist = destination.y - current.y;
-	if(white && current.x == destination.x && dist > 0 && dist < 3) 
+	if (!firstMove && abs(dist) > 1) return false;
+	if (white && current.x == destination.x && dist > 0 && dist < 3)
+	{
+		firstMove = false;
 		return true;
+	}
 	else if (!white && current.x == destination.x && dist < 0 && dist > -3)
+	{
+		firstMove = false;
 		return true;
+	}
 	return false;
 }
 
-bool Pawn::canBeat(Figure* fig) {
-	if (this->getColor() == fig->getColor()) return false;
+bool Pawn::canBeat(Figure* fig, Entity* board) {
 	sf::Vector2i current = getPiece()->getId();
 	sf::Vector2i destination = fig->getPiece()->getId();
 	bool isWhite = getColor() == sf::Color::White;

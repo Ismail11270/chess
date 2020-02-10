@@ -1,8 +1,8 @@
-﻿  Game.cpp
-c:\users\ismail\desktop\projects\visualstudio\chess\chess\game.cpp(6): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\ismail\desktop\projects\visualstudio\chess\chess\game.cpp(86): warning C4715: 'Game::onMouseClick': not all control paths return a value
+﻿  Board.cpp
+c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(31): warning C4018: '<': signed/unsigned mismatch
+c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(34): warning C4018: '<': signed/unsigned mismatch
+c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(45): warning C4018: '<': signed/unsigned mismatch
+c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(51): warning C4018: '<': signed/unsigned mismatch
+c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(99): warning C4018: '<': signed/unsigned mismatch
+c:\users\ismail\desktop\projects\visualstudio\chess\chess\board.cpp(106): warning C4018: '<': signed/unsigned mismatch
   chess.vcxproj -> C:\Users\Ismail\Desktop\Projects\VisualStudio\chess\Debug\chess.exe

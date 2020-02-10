@@ -3,7 +3,7 @@
 #include <iostream>
 
 Game::Game(sf::Vector2f size, std::string title) {
-	window = new sf::RenderWindow(sf::VideoMode(size.x,size.y), title, sf::Style::Default);
+	window = new sf::RenderWindow(sf::VideoMode(size.x,size.y), title, sf::Style::Titlebar | sf::Style::Close);
 	background = new Background(sf::Color::Black, size);
 	board = new Board(sf::Vector2f(0,0));
 	sf::err().rdbuf(NULL);
@@ -21,6 +21,9 @@ void Game::start() {
 			if (event.type == sf::Event::MouseButtonPressed) {
 				onMouseClick(event);
 			}
+			if (event.type == sf::Event::Resized) {
+
+			}
 		}
 		
 		display();
@@ -37,7 +40,7 @@ bool Game::onMouseClick(sf::Event event) {
 			board->clearSelelctedFig();
 			std::cout << "Figure deselected\n";
 		}
-		else if (bp->isEmpty() && figure->canMove(bp)) {
+		else if (bp->isEmpty() && figure->canMove(bp,board)) {
 			figure->moveTo(bp);
 			isWhiteTurn = !isWhiteTurn;
 			board->clearSelelctedFig();
@@ -46,7 +49,7 @@ bool Game::onMouseClick(sf::Event event) {
 		}
 		else if (!bp->isEmpty()) {
 			Figure *destFig = board->getFigureFromPosition(bp->getPosition());
-			if (figure->canBeat(destFig)) {
+			if (figure->canBeat(destFig,board)) {
 				board->removeFigure(destFig);
 				figure->moveTo(destFig->getPiece());
 				isWhiteTurn = !isWhiteTurn;

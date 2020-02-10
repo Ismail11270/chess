@@ -1,6 +1,7 @@
 #pragma once
 #include "BoardPiece.h"
 
+
 class Figure :
 	public Entity
 {
@@ -15,8 +16,8 @@ public:
 	sf::Color getColor();
 	virtual const char* getName() = 0;
 	virtual sf::Sprite* getSprite() = 0;
-	virtual bool canMove(BoardPiece*) = 0;
-	virtual bool canBeat(Figure*) = 0;
+	virtual bool canMove(BoardPiece*, Entity*) = 0;
+	virtual bool canBeat(Figure*, Entity*) = 0;
 	BoardPiece* getPiece() {
 		return piece;
 	}
