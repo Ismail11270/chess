@@ -7,3 +7,7 @@ void BoardPiece::draw(sf::RenderTarget& targ, sf::RenderStates states) const{
 sf::Vector2f BoardPiece::getPosition() {
 	return square.getPosition();
 }
+
+sf::RectangleShape *BoardPiece::getSquare() {
+	return &square;
+}

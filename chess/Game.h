@@ -13,6 +13,8 @@ private:
 	void display();
 	sf::Sprite sp;
 	Board *board;
+	bool onMouseClick(sf::Event);
+	bool isWhiteTurn;
 public:
 	Game(sf::Vector2f, std::string);
 	void start();
