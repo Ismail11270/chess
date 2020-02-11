@@ -2,40 +2,8 @@
 #include <iostream>
 #include "Board.h"
 
-Rook::Rook(BoardPiece* piece, sf::Color color) : Figure(piece, color) {
-	this->texture = new sf::Texture();
-	this->texture->loadFromFile("res/rook_white.png");
-	sprite = new sf::Sprite(*this->texture);
-	sprite->setColor(color);
-	sprite->setScale({ 0.125f,0.125f });
-	setPosition(*getPiece());
-}
-
-void Rook::moveTo(BoardPiece *piece) {
-	getPiece()->resetColor();
-	getPiece()->setEmpty(true);
-	setPosition(*piece);
-	setPiece(piece);
-	getPiece()->setEmpty(false);
-}
-
-
-void Rook::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-	target.draw(*sprite, states);
-}
-
-sf::Vector2f Rook::getPosition() {
-	return sprite->getPosition();
-}
-
-
-void Rook::setPosition(BoardPiece p) {
-	sf::Vector2f pos = p.getPosition();
-	sf::Vector2f size(sprite->getTextureRect().width * sprite->getScale().x, sprite->getTextureRect().height * sprite->getScale().y);
-	sprite->setPosition({ pos.x + (BoardPiece::SQUARE_SIZE - size.x) / 2, pos.y + (BoardPiece::SQUARE_SIZE - size.y) / 2 });
-}
-sf::Sprite* Rook::getSprite() {
-	return sprite;
+Rook::Rook(BoardPiece* piece, sf::Color color) : 
+	Figure(piece, color,sf::Color::White == color ? WHITE_ROOK : BLACK_ROOK) {
 }
 
 const char* Rook::getName() {

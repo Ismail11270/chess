@@ -7,18 +7,10 @@ class Pawn :
 	public Figure
 {
 public:
-	void moveTo(BoardPiece*) override;
 	Pawn(BoardPiece*,sf::Color);
-	void draw(sf::RenderTarget&, sf::RenderStates) const override;
 	bool canMove(BoardPiece*,Entity*) override;
 	bool canBeat(Figure*, Entity*) override;
 	bool firstMove = true;
-private:
-	sf::Sprite *sprite;
-	sf::Texture *texture;
-	sf::Vector2f getPosition() override;
-	void setPosition(BoardPiece) override;
-	sf::Sprite* getSprite() override;
 	const char* getName() override;
 };
 

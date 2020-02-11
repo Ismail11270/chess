@@ -1,6 +1,10 @@
 #include "Board.h"
 #include "Pawn.h"
 #include "Rook.h"
+#include "King.h"
+#include "Knight.h"
+#include "Bishop.h"
+#include "Queen.h"
 
 Board::Board(sf::Vector2f intial_pos) {
 	bool white = true;
@@ -80,12 +84,28 @@ void Board::reset() {
 	//adding rooks
 	whiteFigures.push_back(new Rook(boardPieces[0][0], sf::Color::White));
 	whiteFigures.push_back(new Rook(boardPieces[7][0], sf::Color::White));
-
 	blackFigures.push_back(new Rook(boardPieces[0][7], sf::Color::Black));
 	blackFigures.push_back(new Rook(boardPieces[7][7], sf::Color::Black));
 
+	//adding kinds
+	whiteFigures.push_back(new King(boardPieces[4][0], sf::Color::White));
+	blackFigures.push_back(new King(boardPieces[3][7], sf::Color::Black));
+	
+	//adding knights
+	whiteFigures.push_back(new Knight(boardPieces[1][0], sf::Color::White));
+	whiteFigures.push_back(new Knight(boardPieces[6][0], sf::Color::White));
+	blackFigures.push_back(new Knight(boardPieces[1][7], sf::Color::Black));
+	blackFigures.push_back(new Knight(boardPieces[6][7], sf::Color::Black));
 
-
+	//adding bishops
+	whiteFigures.push_back(new Bishop(boardPieces[2][0], sf::Color::White));
+	whiteFigures.push_back(new Bishop(boardPieces[5][0], sf::Color::White));
+	blackFigures.push_back(new Bishop(boardPieces[2][7], sf::Color::Black));
+	blackFigures.push_back(new Bishop(boardPieces[5][7], sf::Color::Black));
+	
+	//adding queens
+	whiteFigures.push_back(new Queen(boardPieces[3][0], sf::Color::White));
+	blackFigures.push_back(new Queen(boardPieces[4][7], sf::Color::Black));
 
 }
 
