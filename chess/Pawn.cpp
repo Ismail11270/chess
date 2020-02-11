@@ -12,12 +12,10 @@ const char* Pawn::getName() {
 }
 
 bool Pawn::canMove(BoardPiece* bp, Entity* board) {
-	bool white = false;
+	bool white = sf::Color::White == getColor();
 	sf::Vector2i current = getPiece()->getId();
 	sf::Vector2i destination = bp->getId();
-	if (getColor() == sf::Color::White) {
-		white = true;
-	}
+	
 	int dist = destination.y - current.y;
 	if (!firstMove && abs(dist) > 1) return false;
 	if (white && current.x == destination.x && dist > 0 && dist < 3)
@@ -34,7 +32,6 @@ bool Pawn::canMove(BoardPiece* bp, Entity* board) {
 }
 
 bool Pawn::canBeat(Figure* fig, Entity* board) {
-	//to fix ----------------
 	if (getColor() == fig->getColor()) return false;
 	sf::Vector2i current = getPiece()->getId();
 	sf::Vector2i destination = fig->getPiece()->getId();

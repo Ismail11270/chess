@@ -11,6 +11,7 @@ Figure::Figure(BoardPiece* piece, sf::Color color, const char* texture) {
 	this->color = color;
 	sprite->setScale({ 0.12f,0.12f });
 	setPosition(*piece);
+	this->piece->setEmpty(false);
 }
 
 sf::Color Figure::getColor() {

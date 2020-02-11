@@ -45,10 +45,5 @@ bool Rook::canMove(BoardPiece* bp,Entity* b) {
 
 bool Rook::canBeat(Figure* fig, Entity* b) {
 	if (this->getColor() == fig->getColor()) return false;
-	//RTTI
-	Board* board = dynamic_cast<Board*>(b);
-	if (canMove(fig->getPiece(),board)) {
-		return true;
-	}
-	return false;
+	return canMove(fig->getPiece(), b);
 }

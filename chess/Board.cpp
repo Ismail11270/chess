@@ -77,9 +77,7 @@ void Board::reset() {
 	//adding pawns to the board
 	for (int i = 0; i < 8; i++) {
 		whiteFigures.push_back(new Pawn(boardPieces[i][1], sf::Color::White));
-		boardPieces[i][1]->setEmpty(false);
 		blackFigures.push_back(new Pawn(boardPieces[i][6], sf::Color::Black));
-		boardPieces[i][6]->setEmpty(false);
 	}
 	//adding rooks
 	whiteFigures.push_back(new Rook(boardPieces[0][0], sf::Color::White));
@@ -90,19 +88,22 @@ void Board::reset() {
 	//adding kinds
 	whiteFigures.push_back(new King(boardPieces[4][0], sf::Color::White));
 	blackFigures.push_back(new King(boardPieces[3][7], sf::Color::Black));
-	
+
+
 	//adding knights
 	whiteFigures.push_back(new Knight(boardPieces[1][0], sf::Color::White));
 	whiteFigures.push_back(new Knight(boardPieces[6][0], sf::Color::White));
 	blackFigures.push_back(new Knight(boardPieces[1][7], sf::Color::Black));
 	blackFigures.push_back(new Knight(boardPieces[6][7], sf::Color::Black));
+	
 
 	//adding bishops
 	whiteFigures.push_back(new Bishop(boardPieces[2][0], sf::Color::White));
 	whiteFigures.push_back(new Bishop(boardPieces[5][0], sf::Color::White));
 	blackFigures.push_back(new Bishop(boardPieces[2][7], sf::Color::Black));
 	blackFigures.push_back(new Bishop(boardPieces[5][7], sf::Color::Black));
-	
+
+
 	//adding queens
 	whiteFigures.push_back(new Queen(boardPieces[3][0], sf::Color::White));
 	blackFigures.push_back(new Queen(boardPieces[4][7], sf::Color::Black));
@@ -113,13 +114,13 @@ void Board::clearSelelctedFig() {
 	selected = false;
 	selectedFig->getPiece()->resetColor();
 	selectedFig = NULL;
-	
 }
 
 void Board::removeFigure(Figure* fig) {
 	if (fig->getColor() == sf::Color::White) {
 		for (int i = 0; i < whiteFigures.size(); i++) {
 			if (whiteFigures.at(i) == fig) {
+				fig->getPiece()->setEmpty(true);
 				whiteFigures.erase(whiteFigures.begin() + i);
 			}
 		}
@@ -127,6 +128,7 @@ void Board::removeFigure(Figure* fig) {
 	else {
 		for (int i = 0; i < blackFigures.size(); i++) {
 			if (blackFigures.at(i) == fig) {
+				fig->getPiece()->setEmpty(true);
 				blackFigures.erase(blackFigures.begin() + i);
 			}
 		}
