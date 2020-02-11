@@ -11,7 +11,6 @@ const char* Rook::getName() {
 }
 
 bool Rook::canMove(BoardPiece* bp,Entity* b) {
-	bool white = getColor() == sf::Color::White;
 	sf::Vector2i current = getPiece()->getId();
 	sf::Vector2i destination = bp->getId();
 	Board *board = dynamic_cast<Board*>(b);

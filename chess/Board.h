@@ -35,6 +35,6 @@ public:
 	Figure* getSelectedFig() { return selectedFig; }
 	void clearSelelctedFig();
 	void removeFigure(Figure*);
-
+	~Board();
 };
 

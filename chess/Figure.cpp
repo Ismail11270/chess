@@ -39,3 +39,8 @@ void Figure::setPosition(BoardPiece p) {
 sf::Vector2f Figure::getPosition() {
 	return sprite->getPosition();
 }
+
+Figure::~Figure() {
+	delete sprite;
+	delete texture;
+}

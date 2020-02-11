@@ -1,5 +1,7 @@
 #pragma once
-#include "Figure.h"
+#include "Rook.h"
+#include "Bishop.h"
+
 #define WHITE_QUEEN "res/queen_white.png"
 #define BLACK_QUEEN "res/queen_black.png"
 

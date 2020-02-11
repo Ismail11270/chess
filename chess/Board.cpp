@@ -134,3 +134,7 @@ void Board::removeFigure(Figure* fig) {
 		}
 	}
 }
+
+Board::~Board() {
+	delete[] boardPieces;
+}

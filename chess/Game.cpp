@@ -25,7 +25,6 @@ void Game::start() {
 
 			}
 		}
-		
 		display();
 	}
 }

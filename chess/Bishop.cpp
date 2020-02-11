@@ -34,5 +34,5 @@ bool Bishop::canMove(BoardPiece* bp, Entity* brd) {
 
 bool Bishop::canBeat(Figure* fig, Entity* brd) {
 	if (this->getColor() == fig->getColor()) return false;
-	return canMove(fig->getPiece(), brd);
+	return canMove(fig->getPiece(), brd);	
 }

@@ -26,5 +26,6 @@ public:
 	void setPiece(BoardPiece* b) { piece = b; }
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 	void setPosition(BoardPiece);
+	~Figure();
 };
 
