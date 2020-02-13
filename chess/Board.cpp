@@ -25,6 +25,19 @@ Board::Board(sf::Vector2f intial_pos) {
 	reset();
 }
 
+Figure* Board::getFigure(const char* name, sf::Color color) {
+	if (color == sf::Color::White) {
+		for(Figure* f : whiteFigures) {
+			if (f->getName() == name) return f;
+		}
+	}
+	else if (color == sf::Color::Black) {
+		for (Figure* f : blackFigures) {
+			if (f->getName() == name) return f;
+		}
+	}
+	return NULL;
+}
 
 void Board::draw(sf::RenderTarget& targ, sf::RenderStates states) const {
 	for (int i = 0; i < 8; i++) {
@@ -60,6 +73,7 @@ Figure* Board::getFigureFromPosition(sf::Vector2f pos) {
 	}
 	return NULL;
 }
+
 BoardPiece* Board::getBoardPieceFromPosition(sf::Vector2f pos) {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
@@ -85,10 +99,6 @@ void Board::reset() {
 	blackFigures.push_back(new Rook(boardPieces[0][7], sf::Color::Black));
 	blackFigures.push_back(new Rook(boardPieces[7][7], sf::Color::Black));
 
-	//adding kinds
-	whiteFigures.push_back(new King(boardPieces[4][0], sf::Color::White));
-	blackFigures.push_back(new King(boardPieces[3][7], sf::Color::Black));
-
 
 	//adding knights
 	whiteFigures.push_back(new Knight(boardPieces[1][0], sf::Color::White));
@@ -107,6 +117,10 @@ void Board::reset() {
 	//adding queens
 	whiteFigures.push_back(new Queen(boardPieces[3][0], sf::Color::White));
 	blackFigures.push_back(new Queen(boardPieces[4][7], sf::Color::Black));
+
+	//adding kings
+	whiteFigures.push_back(new King(boardPieces[4][0], sf::Color::White));
+	blackFigures.push_back(new King(boardPieces[3][7], sf::Color::Black));
 
 }
 
@@ -136,5 +150,20 @@ void Board::removeFigure(Figure* fig) {
 }
 
 Board::~Board() {
-	delete[] boardPieces;
 }
+
+bool Board::isCheck(bool white) {
+	if(!white)
+		for (Figure *fig : whiteFigures) {
+			if (fig->canBeat(blackFigures.back(), this))
+				return true;
+		}
+	else
+		for (Figure *fig : blackFigures) {
+			if (fig->canBeat(whiteFigures.back(), this))
+				return true;
+		}
+	
+	return false;
+}
+

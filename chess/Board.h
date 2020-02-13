@@ -14,6 +14,8 @@ private:
 	std::vector<Figure*> blackFigures;
 	Figure* selectedFig = NULL;
 	bool selected = false;
+	bool checkBlack = false;
+	bool checkWhite = false;
 public:
 	Board(sf::Vector2f);
 	BoardPiece** getPieces() { return *boardPieces; }
@@ -33,6 +35,8 @@ public:
 	bool hasSelected() { return selected; }
 	void setSelectedFig(Figure* fig) { selectedFig = fig; selected = true; }
 	Figure* getSelectedFig() { return selectedFig; }
+	Figure* getFigure(const char* name, sf::Color);
+	bool isCheck(bool);
 	void clearSelelctedFig();
 	void removeFigure(Figure*);
 	~Board();

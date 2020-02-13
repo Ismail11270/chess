@@ -15,13 +15,22 @@ private:
 	Board *board;
 	bool onMouseClick(sf::Event);
 	bool isWhiteTurn;
+	bool isCheck;
+	bool isGameOver();
+	bool gameOver;
+	void restartButtonListener(sf::Event);
+	sf::Text *text;
+	sf::Font *font;
 public:
 	Game(sf::Vector2f, std::string);
 	void start();
 	~Game() {
 		delete window;
 		delete background;
+		if(board)
 		delete board;
+		delete font;
+		delete text;
 	}
 };
 

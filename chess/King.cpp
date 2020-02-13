@@ -13,6 +13,7 @@ const char* King::getName() {
 bool King::canMove(BoardPiece* bp, Entity* brd) {
 	sf::Vector2i current = getPiece()->getId();
 	sf::Vector2i destination = bp->getId();
+	//if distance is 1 square use queens moves	
 	double dist = sqrt(pow(destination.x - current.x, 2) + pow(destination.y - current.y, 2));
 	if (dist != sqrt(2) && dist!=1) return false;
 	std::unique_ptr<Queen> b(new Queen(getPiece(), getColor()));
